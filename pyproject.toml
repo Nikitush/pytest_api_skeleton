@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "My_project"
+version = "0.1.0"
+description = "Tests for education"
+authors = ["Anonim"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.12.0"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+pre-commit = "^3.2.2"
+
+[tool.black]
+line-length=120
+extend-exclude='''
+/(
+  | .venv
+)/
+'''
+
+[tool.isort]
+line_length=120
+multi_line_output=7
+force_single_line=true
+lines_after_imports=2
+skip=[".venv"]
+
+[tool.pytest.ini_options]
+addopts="-s -v --disable-warnings --clean-alluredir --alluredir=report"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
